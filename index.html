@@ -11,79 +11,62 @@
 <body>
     
     <header>
-        <div class="nav flex center">
+        <div class="nav flex justify-center">
             <span id="moon"></span>
             <nav class="navbar flex">
                 <a class="nav-item nav-brand" href="#" >blood moon designs</a>
                     <div class="nav-items flex">
                         <a class="nav-item" href="#">home</a>
-                        <a class="nav-item" href="#">gear</a>
-                        <a class="nav-item" href="#">art</a>
-                        <a class="nav-item" href="#">new</a>
+                        <!--<a class="nav-item" href="#">gear</a>
+                        <a class="nav-item" href="#">art</a>-->
                         <a class="nav-item" href="#">+</a>
+                        <a class="nav-item" id="message" href="#"></a>
                         <div id="message"></div>
                     </div>
             </nav>
         </div>
         
-        <div class="nav-shadow"></div>
+        
     </header>
     
 
     
     
     <!--START BLOG COLUMN-->
-    <div class="flex center">
+    <div class="flex justify-center">
         <div class="blog-content flex-v">
            
             <!--POST-->
             <div class="post flex-v">
-                <div class="image-container"></div>
-                <img class="post-image" src="images/001.jpg" alt="">
+
+                <!-- IMAGE CONTAINER-->
+                <div class="image-container flex align-center">
+                    <a class="arrow" onclick="return incrementSlide(-1)">&#10094;</a>
+                    <img class="post-image active-image" id="image1" src="images/001/001.jpeg">
+                    <img class="post-image" id="image2" src="images/001/002.jpeg">
+                    <img class="post-image" id="image3" src="images/001/003.jpeg">
+                    <a class="arrow" onclick="return incrementSlide(1)">&#10095;</a>
+                </div>
+                <!-- END IMAGE CONTAINER-->
+
+                <!-- POST BODY -->
                 <div class="post-body">
                     <div class="post-header flex">
-                        <a href="post1.html" class="post-title">valencia & 20th</a>
-                        <span class="post-location">san francisco</span>
+                        <a href="#" class="post-title">los andes</a>
+                        <span class="post-location">ecuador</span>
                         <span class="spacer"></span>
-                        <span class="post-date">july 2, 2022</span>
+                        <span class="post-date">dec 4, 2022</span>
                     </div>
                     <hr>
-                    <p class="post-content">the most beautiful and precious spot. perched on the first floor. overlooking the beautiful chaos of valencia. my home for however brief a period. what a godsend. what a palace. will always be remembered.</p>
+                    <p class="post-content">imagine looking up at the most massive golith of land possible. Then imagine it countinues the same distance down, and in every direction around you. But unlike the jagged peaks of the alps and himalayas, these peaks are vegetative, a consistent palette of grays, browns, and greens, and crest in softer angles. They are no less imposing as their substantive form only serves to remind you how impossibly small you are   </p>
                 </div>
+                <!-- END POST BODY-->
             </div>
             <!--END POST-->
 
-            <!--POST-->
-            <div class="post flex-v">
-                <img class="post-image" src="images/002.png" alt="">
-                <div class="post-body">
-                    <div class="post-header flex">
-                        <a href="#" class="post-title">diq!</a>
-                        <span class="post-location">outerspace</span>
-                        <span class="spacer"></span>
-                        <span class="post-date">september 2, 2022</span>
-                    </div>
-                    <hr>
-                    <p class="post-content">truly enthralled. I cannot look away. </p>
-                </div>
-            </div>
-            <!--END POST-->
+        
 
-            <!--POST-->
-            <div class="post flex-v">
-                <img class="post-image" src="images/005.JPG" alt="">
-                <div class="post-body">
-                    <div class="post-header flex">
-                        <a href="#" class="post-title">where it all began</a>
-                        <span class="post-location">san jose ave.</span>
-                        <span class="spacer"></span>
-                        <span class="post-date">aug 1, 2022</span>
-                    </div>
-                    <hr>
-                    <p class="post-content">my sweet little house that - for however brief a period - was a home. The first place I truly loved and the place I hit my absolute lowest. here is where i realized the potential a house can have, regardless of whos there with you </p>
-                </div>
-            </div>
-            <!--END POST-->
+            
 
         </div>
     </div>

@@ -14,7 +14,6 @@ body {
     background-color: white;
     font-family: serif;
 }
-
 a {
     text-decoration: none;
     color: black;
@@ -29,7 +28,7 @@ a:hover {
 .flex {
     display: flex;
 }
-.center {
+.justify-center {
     justify-content: center;
 }
 .flex-v {
@@ -39,30 +38,28 @@ a:hover {
 .align-end {
     align-items: flex-end;
 }
-.form {
-    flex-direction: column;
-    padding-top: 1rem;
-}
-.form > label {
-    padding-top: 1rem;
+.align-center {
+    align-items: center;
 }
 
 
 /* NAVIGATION*/
 .nav {
+    
+    background-color: rgba(255, 255, 255, 1);
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 1);
 }
 .navbar {
     display: flex;
     flex-basis: 50%;
     justify-content: space-between;
-    padding: 3rem 0 1rem 
+    padding: 2rem 0 1rem;
 }
 .nav-items {
     gap: 2rem;
+    position: relative;
     
 }
 .nav-item {
@@ -78,27 +75,25 @@ a:hover {
 .nav-brand {
     text-decoration: underline rgba(255,57,0,1);
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.8vw;
     padding-right: 10%;
 }
-.nav-shadow{
-    height: 2rem;
-}
+
 
 
 /* BLOG */
 .blog-content {
     flex-basis: 50%;
     gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
 }
 .post{
     padding-top: 1rem;
 }
-.post-body {
+/*.post-body {
     width: 100%;
-}
+}*/
 .post-header {
     justify-content: flex-end;
     align-items: center;
@@ -107,7 +102,6 @@ a:hover {
     padding: 1rem 1rem 0;
 }
 .post-title {
-    
     font-size: 1.3rem;
 }
 .post-location {
@@ -139,11 +133,31 @@ a:hover {
     
 }
 
+
+
+/*IMAGES*/
+.image-container {
+    height: 40vw;
+    
+}
+.arrow {
+    margin: 3px;
+    color: rgb(158, 158, 158);
+}
+.post-image {
+    visibility: collapse;
+    object-fit: contain;
+    padding: 1rem;
+}
+.active-image {
+    visibility: visible;
+}
+
+
+
 /* MOBILE VIEW*/
 @media (max-width: 700px) {
     .blog-content {
         flex-basis: 70%;
     }
 }
-
-
