@@ -11,7 +11,7 @@ document.addEventListener('scroll', function (event) {
     let ratio = scroll/height
     
     moon.style.left = window.innerWidth*ratio-moon.offsetWidth/2+'px'
-    moon.style.top = (2*ratio**2 - 2*ratio + 0.5)*100+'%'
+    moon.style.top = (2*ratio**2 - 2*ratio+0.5)*100+'%'
 })
 function incrementSlide(n) {
     slide = document.querySelector('.active-image').id;

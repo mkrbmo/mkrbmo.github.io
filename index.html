@@ -5,73 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mkm</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    
-    <header>
-        <div class="nav flex justify-center">
-            <span id="moon"></span>
-            <nav class="navbar flex">
-                <a class="nav-item nav-brand" href="#" >blood moon designs</a>
-                    <div class="nav-items flex">
-                        <a class="nav-item" href="#">home</a>
-                        <!--<a class="nav-item" href="#">gear</a>
-                        <a class="nav-item" href="#">art</a>-->
-                        <a class="nav-item" href="#">+</a>
-                        <a class="nav-item" id="message" href="#"></a>
-                        <div id="message"></div>
-                    </div>
-            </nav>
-        </div>
-        
-        
-    </header>
-    
+    <div id="container">
 
-    
-    
-    <!--START BLOG COLUMN-->
-    <div class="flex justify-center">
-        <div class="blog-content flex-v">
-           
-            <!--POST-->
-            <div class="post flex-v">
+        <span id="moon"></span>
 
+        <nav id="menu">
+                <h1 id="title"><a href="index.html"  class="nav-item">blood moon designs</a></h1>
+                <a href="index.html" class="nav-item">home</a>
+                <a href="#" class="nav-item">+</a>
+        </nav>
+    
+    
+    
+        <main id="blog-container">
+
+            <!-- START POST -->
+            <div class="post">
                 <!-- IMAGE CONTAINER-->
-                <div class="image-container flex align-center">
+                <div class="image-container">
                     <a class="arrow" onclick="return incrementSlide(-1)">&#10094;</a>
-                    <img class="post-image active-image" id="image1" src="images/001/001.jpeg">
-                    <img class="post-image" id="image2" src="images/001/002.jpeg">
-                    <img class="post-image" id="image3" src="images/001/003.jpeg">
+                    <img class="post-image active-image" id="image1" src="images/001/01.jpg">
+                    <img class="post-image" id="image2" src="images/001/02.jpg">
+                    <img class="post-image" id="image3" src="images/001/03.jpg">
+                    <img class="post-image" id="image4" src="images/001/04.jpg">
                     <a class="arrow" onclick="return incrementSlide(1)">&#10095;</a>
                 </div>
-                <!-- END IMAGE CONTAINER-->
 
                 <!-- POST BODY -->
                 <div class="post-body">
-                    <div class="post-header flex">
-                        <a href="#" class="post-title">los andes</a>
-                        <span class="post-location">ecuador</span>
-                        <span class="spacer"></span>
-                        <span class="post-date">dec 4, 2022</span>
+                    <div class="post-header">
+                        <h2 href="#" class="post-title">making my own</h2>
+                        <span class="post-location">asheville, nc</span>
+                        <span class="post-date">dec 28, 2022</span>
                     </div>
                     <hr>
-                    <p class="post-content">imagine looking up at the most massive golith of land possible. Then imagine it countinues the same distance down, and in every direction around you. But unlike the jagged peaks of the alps and himalayas, these peaks are vegetative, a consistent palette of grays, browns, and greens, and crest in softer angles. They are no less imposing as their substantive form only serves to remind you how impossibly small you are   </p>
+                    <p class="post-content">    I've always felt that a lot of outdoor gear isn't great. The balance between form, functionality, price, durability, weight, and most importantly ~color~ is very subjective. It's impossible for a widely produced item not to fall short in one area or another. My discovery that people sew gear themselves was therefore revolutionary. The -aptly named- Make Your Own Gear (myog) community is surprisingly large and sources the same highly-engineered materials that commercial brands have access to. Sewing skills willing, I realized that almost all the camping gear I use could be sewn or made exactly to my specifications. 
+                        <br><br>
+                        In an admittedly zealous first attempt, I decided to sew a ultralight backpacking pack. Since I did not have previous experience prototyping or using patterns, I decided to base my initial design off of a popular pack from Hyperlite Mountain Gear, with modifications to make it more comfortable and lighter. I found the actual process of sewing to be significantly easier than figuring out the logistical order-of-operations for constructing it with clean seams. Despite a significant amount of ripping out mistake stitches, it turned out better than I expected. As to whether the bottom falls out in the field, only time will tell. </p>
                 </div>
-                <!-- END POST BODY-->
+
             </div>
-            <!--END POST-->
+            <!-- END POST -->
 
-        
 
-            
-
-        </div>
-    </div>
-
+        </main>
     
+</div>
 
 
 </body>
