@@ -29,10 +29,10 @@ body {
     position: relative;
     margin: 0;
 }
-hr {
+hr, ul {
     margin: 0;
-    
 }
+
 /* --------------
  |  NAVIGATION  |
  ---------------*/
@@ -71,7 +71,9 @@ hr {
     text-decoration: wavy underline rgba(255,57,0,1);
     color: var(--text-main);
 } 
-
+li {
+    margin: 10px 0;
+}
 
 /* --------------
  |     BLOG     |
@@ -81,7 +83,8 @@ hr {
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 30%;
+    
 }
 .post-body {
     margin: auto;
@@ -115,14 +118,14 @@ hr {
  ---------------*/
 .post-image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
     overflow: hidden;
 }
 .image-container {
     display: flex;
     align-items: center;
-    height: 75vw;
+    
 }
 .arrow {
     padding: 15px;
@@ -143,18 +146,13 @@ hr {
     display: block;
 }
 
-
 /* --------------
- |    IMAGES    |
+ |    RESUME    |
  ---------------*/
-#about-container {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 60px;
-} 
-
+.resume-item {
+    
+    margin: 0 0 0 10px;
+}
 
 #moon {
     height: 4rem;
