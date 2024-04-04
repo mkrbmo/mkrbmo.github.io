@@ -17,6 +17,7 @@
 
 html, body {
     font-family: "bluu-next", serif;
+    min-width: 350px;
 }
 
 body {
@@ -62,13 +63,13 @@ hr, ul {
 
 .nav-item {
     color: var(--text-main);
-    text-decoration: underline rgba(255,57,0,1);
+    text-decoration: underline rgb(255, 184, 19);
     padding: 5px;
     margin: 5px;
     font-size: 1.1rem;
 }
 .nav-item:hover {
-    text-decoration: wavy underline rgba(255,57,0,1);
+    text-decoration: wavy underline rgb(255, 184, 19);
     color: var(--text-main);
 } 
 li {
@@ -83,8 +84,10 @@ li {
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 30%;
-    
+    margin-top: 30px;
+}
+.post {
+    padding-bottom: 30px;
 }
 .post-body {
     margin: auto;
@@ -114,7 +117,7 @@ li {
 
 
 /* --------------
- |    IMAGES    |
+ |    MEDIA    |
  ---------------*/
 .post-image {
     width: 100%;
@@ -145,6 +148,9 @@ li {
 .active-image {
     display: block;
 }
+video{
+    border: 2px black solidf;
+}
 
 /* --------------
  |    RESUME    |
@@ -155,6 +161,7 @@ li {
 }
 
 #moon {
+    display: none;
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
@@ -177,6 +184,9 @@ li {
     }
     .post-body {
         width: 95%;
+    }
+    #blog-container{
+    margin-top: 20%;
     }
 }
 @media (min-width: 480px) and (max-width: 767px) {
