@@ -14,7 +14,8 @@ document.addEventListener('scroll', function (event) {
     moon.style.top = (2*ratio**2 - 2*ratio+0.5)*100+'%'*/
     moon.style.top = ratio*70+10+'%'
 })
-function incrementSlide(n) {
+
+function incrementSlide(n, slide) {
     slide = document.querySelector('.active-image').id;
     slide_number = +slide.slice(-1);
     
