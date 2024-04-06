@@ -199,8 +199,21 @@ video{
     .post-body {
         width: 85%;
     }
+    video {
+        width: 80%;
+        margin: auto;
+    }
+    
 }
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width:1023){
+    video {
+        width: 60%;
+        margin: auto;
+    }
 }
-@media (min-width: 1024px){
+@media (min-width: 1023px)  {
+    video {
+        width: 50%;
+        margin: auto;
+    }
 }
