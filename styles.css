@@ -210,10 +210,18 @@ video{
         width: 60%;
         margin: auto;
     }
+    .image-container {
+        width: 60%;
+        margin: auto;
+    }
 }
 @media (min-width: 1023px)  {
     video {
         width: 50%;
+        margin: auto;
+    }
+    .image-container {
+        width: 80%;
         margin: auto;
     }
 }
