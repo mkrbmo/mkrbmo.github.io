@@ -1,43 +1,27 @@
 
-document.addEventListener('scroll', function (event) {
-    
-    let body = document.body
-    let html = document.documentElement;
-    
-    let moon = document.getElementById('moon')
-    let height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight;
-    let scroll = window.scrollY 
-    let ratio = scroll/height
-    
-    /*moon.style.left = window.innerWidth*ratio-moon.offsetWidth/2+'px'
-    moon.style.top = (2*ratio**2 - 2*ratio+0.5)*100+'%'*/
-    moon.style.top = ratio*70+10+'%'
-})
-
-function incrementSlide(n, slide) {
-    slide = document.querySelector('.active-image').id;
-    slide_number = +slide.slice(-1);
-    
-    if (n == -1 && slide_number > 1) {
-        image = document.getElementById(slide);
-        image.classList.toggle('active-image');
-
-        image = document.getElementById('image'+(slide_number-1).toString());
-        image.classList.toggle('active-image');
-        
-
-    } else if (n == 1 && document.getElementById('image'+(slide_number+1).toString())) {
-        image = document.getElementById(slide);
-        image.classList.toggle('active-image');
-
-        image = document.getElementById('image'+(slide_number+1).toString());
-        image.classList.toggle('active-image');
+function incrementSlide(e) {
+    var siblings = n => [...n.parentElement.children]
+    console.log(siblings(e))
+    for (let sibling of siblings(e)) {
+        if (!sibling.classList.contains('active-image')) {
+            continue
+        } else if (sibling.nextElementSibling.nodeName == "IMG") {
+            sibling.classList.toggle('active-image')
+            sibling.nextElementSibling.classList.toggle('active-image')
+            break
+        }
     }
-
-    
-
-    
-    
-    
+}
+function decrementSlide(e) {
+    var siblings = n => [...n.parentElement.children]
+    console.log(siblings(e))
+    for (let sibling of siblings(e)) {
+        if (!sibling.classList.contains('active-image')) {
+            continue
+        } else if (sibling.previousElementSibling.nodeName == "IMG") {
+            sibling.classList.toggle('active-image')
+            sibling.previousElementSibling.classList.toggle('active-image')
+            break
+        }
+    }
 }
