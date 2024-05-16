@@ -225,3 +225,14 @@ video{
         margin: auto;
     }
 }
+
+
+/* --------------
+ |    MAP    |
+ ---------------*/
+ #map { 
+    height: 700px; 
+}
+.track:hover {
+    background-color: rgb(208, 208, 208);
+}

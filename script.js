@@ -1,7 +1,7 @@
 
 function incrementSlide(e) {
     var siblings = n => [...n.parentElement.children]
-    console.log(siblings(e))
+    
     for (let sibling of siblings(e)) {
         if (!sibling.classList.contains('active-image')) {
             continue
@@ -14,7 +14,7 @@ function incrementSlide(e) {
 }
 function decrementSlide(e) {
     var siblings = n => [...n.parentElement.children]
-    console.log(siblings(e))
+    
     for (let sibling of siblings(e)) {
         if (!sibling.classList.contains('active-image')) {
             continue
@@ -25,3 +25,4 @@ function decrementSlide(e) {
         }
     }
 }
+
