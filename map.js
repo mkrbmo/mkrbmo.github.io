@@ -12,10 +12,11 @@ function onEachFeature(feature, layer) {
         layer.bindPopup(feature.properties.popupContent);
     }
 }
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
 var geojson
 const COLORS = [
-    "#ffffe5",
-    "#f7fcb9",
     "#d9f0a3",
     "#addd8e",
     "#78c679",
@@ -23,11 +24,19 @@ const COLORS = [
     "#238443",
     "#006837",
     "#004529"]
-
+var i = -1
+function style() {
+    i++
+    return {
+        color: COLORS[i],
+        weight: 4,
+        opacity: 4,
+    };
+}
 function addTrackToMap(geojson) {
     var layer = L.geoJSON(geojson,
         {
-            onEachFeature: onEachFeature
+            style: style
         }).addTo(map);
     return layer
 }
@@ -50,10 +59,7 @@ async function fetchTrack(file) {
 function addMouseover (track) {
     track.on('mouseover', function(e) {
         var layer = e.target;
-        
         layer.setStyle({
-            color: 'blue',
-            opacity: 1,
             weight: 6
         });
         layer.bringToFront()
@@ -61,10 +67,12 @@ function addMouseover (track) {
     track.on('mouseout', function(e) {
         var layer = e.target;
     
-        geojson.resetStyle(e.target)
+        layer.setStyle({
+            weight: 4
+        });
     })
     track.on('click', function(e) {
-        
+        zoomToFeature(e)
     })
 }
 function addListEntry(track) {
