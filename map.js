@@ -24,13 +24,13 @@ const COLORS = [
     "#238443",
     "#006837",
     "#004529"]
-var i = -1
+var i = 0
 function style() {
     i++
     return {
-        color: COLORS[i],
-        weight: 4,
-        opacity: 4,
+        color: COLORS[i % 8],
+        weight: 5,
+        opacity: 10,
     };
 }
 function addTrackToMap(geojson) {
@@ -47,7 +47,7 @@ async function fetchTrack(file) {
             .then((response) => response.json())
             .then((json) => {
                 track = addTrackToMap(json);
-                
+                console.log(json.features[0].properties.total)
                 
             }); 
     } catch (error) {
@@ -60,7 +60,7 @@ function addMouseover (track) {
     track.on('mouseover', function(e) {
         var layer = e.target;
         layer.setStyle({
-            weight: 6
+            weight: 7
         });
         layer.bringToFront()
     });
@@ -68,12 +68,23 @@ function addMouseover (track) {
         var layer = e.target;
     
         layer.setStyle({
-            weight: 4
+            weight: 5
         });
     })
     track.on('click', function(e) {
         zoomToFeature(e)
-    })
+    });
+    let tableRow = `
+    <tr class="track">
+    <th scope="row"></th>
+    <td>4h10m</td>
+    <td>59.37 miles</td>
+    <td>2365 ft</td>
+    </tr>
+    `
+    document.getElementById('legend').appendChild(tableRow)
+
+    
 }
 function addListEntry(track) {
 
