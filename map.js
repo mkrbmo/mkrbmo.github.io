@@ -1,20 +1,11 @@
-var map = L.map('map').setView([47.624248, -122.317024], 10);
+// INSTANTIATE MAP //
+var map = L.map('map').setView([47.624248, -122.317024], 9);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     tiles:"CartoDB.Voyager"
 }).addTo(map);
 
-
-function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
-    }
-}
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
 var geojson
 const COLORS = [
     "#d9f0a3",
@@ -25,7 +16,13 @@ const COLORS = [
     "#006837",
     "#004529"]
 var i = 0
-function style() {
+
+var routes2024 = new L.FeatureGroup()
+
+// MAP VIEWING FUNCTIONS //
+
+
+function styleLayer() {
     i++
     return {
         color: COLORS[i % 8],
@@ -33,22 +30,21 @@ function style() {
         opacity: 10,
     };
 }
-function addTrackToMap(geojson) {
+function addLayerToGroup(geojson) {
     var layer = L.geoJSON(geojson,
         {
-            style: style
-        }).addTo(map);
+            style: styleLayer
+        })
+    routes2024.addLayer(layer)
     return layer
 }
-async function fetchTrack(file) {
+async function fetchTrackDataFromFile(file) {
     var track 
     try {
         await fetch(file)
             .then((response) => response.json())
             .then((json) => {
-                track = addTrackToMap(json);
-                console.log(json.features[0].properties.total)
-                
+                track = addLayerToGroup(json);
             }); 
     } catch (error) {
         console.log(error)
@@ -56,7 +52,9 @@ async function fetchTrack(file) {
     return track
 }
 
-function addMouseover (track) {
+
+function addInteraction (track) {
+    let row = document.getElementById('track')
     track.on('mouseover', function(e) {
         var layer = e.target;
         layer.setStyle({
@@ -72,26 +70,19 @@ function addMouseover (track) {
         });
     })
     track.on('click', function(e) {
-        zoomToFeature(e)
+        map.fitBounds(e.target.getBounds());
     });
-    let tableRow = `
-    <tr class="track">
-    <th scope="row"></th>
-    <td>4h10m</td>
-    <td>59.37 miles</td>
-    <td>2365 ft</td>
-    </tr>
-    `
-    document.getElementById('legend').appendChild(tableRow)
-
-    
-}
-function addListEntry(track) {
-
 }
 
+for (let i = 0; i<14; i++) {
+    fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => addInteraction(track))
+}
 
-fetchTrack('./tracks.geojson').then((track) => addMouseover(track))
+map.addLayer(routes2024)
+var overlayMaps = {
+    "2024": routes2024
+};
+var layerControl = L.control.layers(null, overlayMaps).addTo(map);
 
-fetchTrack('./back.geojson').then(track => addMouseover(track))
+
 
