@@ -17,10 +17,9 @@ const COLORS = [
     "#004529"]
 var i = 0
 
-var routes2024 = new L.FeatureGroup()
+var routesGroup2024 = new L.FeatureGroup()
 
 // MAP VIEWING FUNCTIONS //
-
 
 function styleLayer() {
     i++
@@ -33,9 +32,14 @@ function styleLayer() {
 function addLayerToGroup(geojson) {
     var layer = L.geoJSON(geojson,
         {
-            style: styleLayer
+            style: styleLayer,
+            onEachFeature: function (feature, layer) {
+                if (feature.properties && feature.properties.popupContent) {
+                    layer.bindPopup(feature.properties.popupContent);
+                }
+            }
         })
-    routes2024.addLayer(layer)
+    routesGroup2024.addLayer(layer)
     return layer
 }
 async function fetchTrackDataFromFile(file) {
@@ -72,15 +76,16 @@ function addInteraction (track) {
     track.on('click', function(e) {
         map.fitBounds(e.target.getBounds());
     });
+    
 }
 
 for (let i = 0; i<14; i++) {
     fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => addInteraction(track))
 }
 
-map.addLayer(routes2024)
+map.addLayer(routesGroup2024)
 var overlayMaps = {
-    "2024": routes2024
+    "2024": routesGroup2024
 };
 var layerControl = L.control.layers(null, overlayMaps).addTo(map);
 
