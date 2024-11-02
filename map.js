@@ -65,6 +65,7 @@ function addInteraction (track) {
             weight: 7
         });
         layer.bringToFront()
+        
     });
     track.on('mouseout', function(e) {
         var layer = e.target;
