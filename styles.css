@@ -1,5 +1,6 @@
 :root {
-    --bg-color: white;
+    --bg-color: rgb(253, 253, 253);
+    --foreground-color:  rgb(251, 251, 251);;
     --text-main: black;
     --text-accent: rgb(81, 81, 81);
 }
@@ -85,12 +86,17 @@ li {
     flex-direction: column;
     margin: auto;
     margin-top: 50px;
+    
 }
 .post {
-    padding-bottom: 30px;
+    padding: 20px 10px 0;
+    margin-bottom: 10%;
+    background-color: var(--foreground-color);
+    
 }
 .post-body {
     margin: auto;
+    
 }
 .post-header {
     padding: 15px 0;
@@ -137,6 +143,7 @@ li {
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
+    font-size: 300%;
 }
 .arrow:hover{
     color: rgb(255,57,0);
