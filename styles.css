@@ -61,7 +61,14 @@ hr, ul {
     flex-grow: 1;
     margin: 0;
 }
-
+.link {
+    color: var(--text-main);
+    text-decoration: underline rgb(255, 184, 19);
+}
+.link:hover {
+    text-decoration: wavy underline rgb(255, 184, 19);
+    color: var(--text-main);
+}
 .nav-item {
     color: var(--text-main);
     text-decoration: underline rgb(255, 184, 19);
