@@ -1,10 +1,12 @@
 // INSTANTIATE MAP //
 var map = L.map('map').setView([47.624248, -122.317024], 9);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    
     tiles:"CartoDB.Voyager"
 }).addTo(map);
+map.zoomControl.setPosition('bottomleft')
+
 
 var geojson
 const COLORS = [
@@ -81,16 +83,17 @@ function addInteraction (track) {
 
 for (let i = 0; i<14; i++) {
     fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => createLayerFromGeojson(track)).then(function(layer){
+        
         routesGroup2024.addLayer(layer);
         addInteraction(layer)
     })
 }
-
+console.log(routesGroup2024)
 map.addLayer(routesGroup2024)
 var overlayMaps = {
     "2024": routesGroup2024
 };
-var layerControl = L.control.layers(null, overlayMaps).addTo(map);
-
+var layerControl = L.control.layers(null, overlayMaps, {position: 'bottomright'}).addTo(map);
+//layerControl.remove(map)
 
 

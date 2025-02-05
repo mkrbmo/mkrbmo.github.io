@@ -18,18 +18,10 @@
 
 html, body {
     font-family: "bluu-next", serif;
-    min-width: 350px;
-}
-
-body {
-    background-color: var(--bg-color);
-}
-
-#container {
     width: 100%;
     height: 100%;
-    position: relative;
     margin: 0;
+    padding: 0;
 }
 hr, ul {
     margin: 0;
@@ -38,23 +30,34 @@ hr, ul {
 /* --------------
  |  NAVIGATION  |
  ---------------*/
-#menu-container {
+
+#map-container, #map {
     width: 100%;
+    height: 100%;
+}
+#map-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--bg-color) 
 }
- #menu {
-    display: flex;
-    justify-content: start;
-    align-items: center;
+#menu-container {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 40%;
+    float: left;
+}
+.menu-item {
+     background-color: var(--bg-color);
+}
+#blog-container {
+    width: 45%;
+    float: right;
     position: relative;
-    width: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 5px 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
+
+
 #title, #title > a {
     font-size: 1.3rem;
     font-weight: bold;
@@ -69,6 +72,7 @@ hr, ul {
     text-decoration: wavy underline rgb(255, 184, 19);
     color: var(--text-main);
 }
+
 .nav-item {
     color: var(--text-main);
     text-decoration: underline rgb(255, 184, 19);
@@ -84,17 +88,9 @@ li {
     margin: 10px 0;
 }
 
-/* --------------
- |     BLOG     |
- ---------------*/
-#blog-container {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 50px;
-    
-}
+
+
+
 .post {
     padding: 20px 10px 0;
     margin-bottom: 10%;
@@ -129,9 +125,7 @@ li {
 
 
 
-/* --------------
- |    MEDIA    |
- ---------------*/
+
 .post-image {
     width: 100%;
     height: auto;
@@ -166,87 +160,9 @@ video{
     border: 2px black solidf;
 }
 
-/* --------------
- |    RESUME    |
- ---------------*/
+
 .resume-item {
     
     margin: 0 0 0 10px;
 }
 
-#moon {
-    display: none;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 50%;
-    background: rgb(255,171,70);
-    background: linear-gradient(180deg, rgba(255,171,70,1) 0%, rgba(255,57,0,1) 100%);
-    position: fixed;
-    top: 95%;
-    left: -24px;
-    z-index: -1;
-    transition: top 1s ease, left 1s ease;
-}
-
-/* MOBILE VIEW*/
-@media (max-width: 479px) {
-    #menu {
-        width: 90%;
-    }
-    #blog-container{
-        width: 100%;
-    }
-    .post-body {
-        width: 95%;
-    }
-    #blog-container{
-    margin-top: 20%;
-    }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-    #menu {
-        width: 80%;
-    }
-    #blog-container{
-        width: 100%;
-    }
-    .post-body {
-        width: 85%;
-    }
-    video {
-        width: 80%;
-        margin: auto;
-    }
-    
-}
-@media (min-width: 768px) and (max-width:1023){
-    video {
-        width: 60%;
-        margin: auto;
-    }
-    .image-container {
-        width: 60%;
-        margin: auto;
-    }
-}
-@media (min-width: 1023px)  {
-    video {
-        width: 50%;
-        margin: auto;
-    }
-    .image-container {
-        width: 80%;
-        margin: auto;
-    }
-}
-
-
-/* --------------
- |    MAP    |
- ---------------*/
- #map { 
-    height: 700px; 
-}
-.track:hover {
-    background-color: rgb(208, 208, 208);
-}
