@@ -21,15 +21,18 @@ var routesGroup2024 = new L.FeatureGroup()
 
 // MAP VIEWING FUNCTIONS //
 
+
 function styleLayer() {
-    i++
+    i++ //increments through color options so each track is different
     return {
         color: COLORS[i % 8],
         weight: 5,
         opacity: 10,
     };
 }
-function addLayerToGroup(geojson) {
+
+//creates leaflet layer from geojson and returns layer
+function createLayerFromGeojson(geojson) {
     var layer = L.geoJSON(geojson,
         {
             style: styleLayer,
@@ -43,20 +46,16 @@ function addLayerToGroup(geojson) {
     return layer
 }
 async function fetchTrackDataFromFile(file) {
-    var track 
     try {
         await fetch(file)
             .then((response) => response.json())
             .then((json) => {
-                track = addLayerToGroup(json);
+                return json
             }); 
     } catch (error) {
         console.log(error)
     }
-    return track
 }
-
-
 function addInteraction (track) {
     let row = document.getElementById('track')
     track.on('mouseover', function(e) {
@@ -81,7 +80,10 @@ function addInteraction (track) {
 }
 
 for (let i = 0; i<14; i++) {
-    fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => addInteraction(track))
+    fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => createLayerFromGeojson(track)).then(function(layer){
+        routesGroup2024.addLayer(layer);
+        addInteraction(layer)
+    })
 }
 
 map.addLayer(routesGroup2024)
