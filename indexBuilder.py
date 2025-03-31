@@ -41,9 +41,9 @@ HTML_TEMPLATE = """
 """
 
 POST_TEMPLATE = """
-<div class="post">
-            <input type="radio" name="accordion" id="{postNumber}">
-            <label for="{postNumber}" class="title link">{title}</label>
+<div class="post" id="{postNumber}" data-feature-count="{featureCount}">
+            <input type="radio" name="accordion" id="post{postNumber}title" onclick="openPost(this.parentElement.id)">
+            <label for="post{postNumber}title" class="title link">{title}</label>
             
             <span class="post-location">{location} ({date})</span>
 
@@ -66,12 +66,7 @@ POST_TEMPLATE = """
 """
 
 def generate_blog_posts(csv_filename, output_filename):
-    # Define an HTML template for each post
 
-
-
-
-    
     # genereate html content depending on the number of images
     def prepareImageHTML(postNumber, numberOfImages, imageAlts):
         #conidition for no images
@@ -80,14 +75,14 @@ def generate_blog_posts(csv_filename, output_filename):
         #condition for one image, no slide incrementing buttons
         elif numberOfImages == "1":
             return f'''<div class="image-container">
-            <img class="post-image active-image" src="images/{postNumber}/1.JPG" alt="{imageAlts[0]}">
+            <img class="post-image active-image" src="images/{postNumber}/1.jpeg" alt="{imageAlts[0]}">
             </div>'''
         else:
-            imageHTML = f'<img class="post-image active-image" src="images/{postNumber}/1.JPG" alt="{imageAlts[0]}">'
+            imageHTML = f'<img class="post-image active-image" src="images/{postNumber}/1.jpeg" alt="{imageAlts[0]}">'
             for imageNumber in range(1, int(numberOfImages)+1):
                 if imageNumber == 1:
                     continue
-                imageHTML += f'<img class="post-image" src="images/{postNumber}/{imageNumber}.JPG" alt="{imageAlts[imageNumber-1]}">'
+                imageHTML += f'<img class="post-image" src="images/{postNumber}/{imageNumber}.jpeg" alt="{imageAlts[imageNumber-1]}">'
             return f'''
             <div class="image-container">
             <a class="arrow" onclick="return decrementSlide(this)">&#10094;</a>
@@ -111,7 +106,8 @@ def generate_blog_posts(csv_filename, output_filename):
                 images = imagesHTML,
                 location=row['location'],
                 date=row['date'],
-                content=row['content']
+                content=row['content'],
+                featureCount = row['featureCount']
             )
     
    

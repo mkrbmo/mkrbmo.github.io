@@ -26,3 +26,4 @@ function decrementSlide(e) {
     }
 }
 
+

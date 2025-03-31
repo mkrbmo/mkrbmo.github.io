@@ -43,7 +43,7 @@ hr {
     width: 45%;
     float: right;
     position: relative;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
 }
@@ -53,7 +53,7 @@ hr {
     position: fixed;
     display: flex;
     
-    padding: 1rem;
+    padding: 2rem;
 }
 .link {
     color: var(--text-main);
