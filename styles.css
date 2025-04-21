@@ -2,8 +2,9 @@
     --bg-color: rgb(253, 253, 253);
     --foreground-color:  rgb(251, 251, 251);;
     --text-main: black;
-    --text-accent: rgb(81, 81, 81);
+    --text-accent: rgb(255, 212, 19);
 }
+/*
 @font-face {
     font-family: "bluu-next";
     src: url("BluuNext-Bold.otf"), format("opentype");
@@ -15,9 +16,10 @@
         urk=local("HalibutSerif-Regular.woff2"), format("woff2");
     font-weight: normal;
 }
+*/
 
 html, body {
-    font-family: "bluu-next", serif;
+    font-family: "optima", sans-serif;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -25,8 +27,12 @@ html, body {
 }
 hr {
     margin: 0;
-    
 }
+h2 {
+    text-decoration: underline;
+    font-weight: normal;
+}
+
 
 /* --------------
  |  NAVIGATION  |
@@ -57,11 +63,11 @@ hr {
 }
 .link {
     color: var(--text-main);
-    font-weight: bold;
+
     text-decoration: none;
 }
 .link:hover {
-    color: rgb(255, 184, 19);
+    color: var(--text-accent);
 }
 .nav-item {
     background-color: var(--bg-color);
@@ -75,18 +81,11 @@ hr {
 .post {
     padding:0;
     background-color: var(--foreground-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
-.post-header {
-    padding:0.5rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+
 .post-location {
-    color: var(--text-accent);
     font-style: italic;
-    flex-grow: 1;
 }
 .post-date {
     font-size: 0.9rem;
@@ -99,8 +98,9 @@ hr {
     display: inline-block;
     font-size: 1.4rem;
     padding: 1rem;
-    font-style: bold;
+    text-decoration: underline;
 }
+
 
 .post input {
     position: absolute;
@@ -111,6 +111,7 @@ hr {
 .post-content {
     max-height:0;
     overflow:hidden;
+   
     
   }
 .post input:checked ~ .post-content {
@@ -132,8 +133,8 @@ hr {
     
 }
 .arrow {
-    padding: 15px;
-    color: rgb(255,171,70);
+    padding: 1rem 0.5rem;
+    color: var(--text-accent);
     -webkit-user-select: none;  
     -moz-user-select: none; 
     -ms-user-select: none; 
@@ -141,7 +142,7 @@ hr {
     font-size: 300%;
 }
 .arrow:hover{
-    color: rgb(255,57,0);
+    color: rgb(255,171,70);
 }
 .post-image {
     display: none;
@@ -154,7 +155,9 @@ video{
     border: 2px black solidf;
 }
 
-
+.about-content {
+    padding: 0 1rem 1rem 1rem;
+}
 .resume-item {
     margin: 0 0 0 10px;
 }

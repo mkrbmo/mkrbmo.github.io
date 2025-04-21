@@ -5,11 +5,8 @@
     "id": "cd533e0b0e917bb8e0e85fc4d4acb838",
     "name": "vanoise",
     "updated_date": "2023-07-11T07:24:02Z",
-    "time_created": "2023-07-03T08:58:29Z",
-    "notes": "",
-    "cover_photo_id": null,
-    "deleted": false,
-    "sync_to_mobile": null
+    "time_created": "2023-07-03T08:58:29Z"
+    
   },
   "features": [
     {
@@ -18,55 +15,7 @@
         "id": "55aedd81c04453edd49498f6e84ba2a8",
         "updated_date": "2023-07-06T18:19:47Z",
         "time_created": "2023-07-04T13:10:10Z",
-        "last_updated_on_server": "2024-04-04T21:41:54.132834",
-        "db_insert_date": "2023-07-04T13:11:40Z",
-        "deleted": false,
-        "title": "Section 2",
-        "public": false,
-        "color": "{0.957, 0.141, 0.063, 1.000}",
-        "hexcolor": "#F42410",
-        "is_active": true,
-        "revision": 1712266914,
-        "notes": "",
-        "track_type": "route",
-        "routing_mode": "pedestrian",
-        "uploaded_gpx_to_osm": null,
-        "flag": null,
-        "source": null,
-        "cover_photo_id": null,
-        "distance": 24169.731872996672,
-        "total_ascent": 1331.0673319147647,
-        "total_descent": 1320.7892653834097,
-        "stopped_time": 0,
-        "total_time": 0,
-        "average_speed": 0,
-        "moving_time": 0,
-        "moving_speed": 0,
-        "activities": [
-          "backpacking"
-        ],
-        "imported": false,
-        "folder": "cd533e0b0e917bb8e0e85fc4d4acb838",
-        "privacy_level": null,
-        "sync_to_mobile": null,
-        "preferred_link": "/public/w43SKloW87osi4XDilhfCpEB",
-        "user_displayname": "mkrbmo",
-        "username": "mkrbmo@gmail.com",
-        "user_email": "mkrbmo@gmail.com",
-        "user_id": 5441029,
-        "created_by": {
-          "id": 5441029,
-          "displayName": "mkrbmo",
-          "link": "/profile/5441029/",
-          "image": "https://www.gaiagps.com/profile/5441029/photo/"
-        },
-        "favorite_count": 0,
-        "comment_count": 0,
-        "comments": [],
-        "user_photo_count": 0,
-        "latitude": 45.36514755456431,
-        "longitude": 6.892058056135652,
-        "writable": false
+        "description": "july 2023 // tour du vanoise"
       },
       "style": {
         "stroke": "#F42410"

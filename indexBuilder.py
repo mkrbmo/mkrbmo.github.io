@@ -34,7 +34,7 @@ HTML_TEMPLATE = """
         </div>
         
         <div id="blog-container" >
-        {blog_posts}
+        {content}
         </div>
 </body>
 </html>
@@ -65,7 +65,49 @@ POST_TEMPLATE = """
         
 """
 
-def generate_blog_posts(csv_filename, output_filename):
+ABOUT_TEMPLATE = """
+<div class="post">
+<div class="about-content">
+<h2>about</h2>
+            <p>Hello! I'm a maker, chemist, and aspiring software developer from the appalachian mountains. I currently reside in Seattle, Washington where I spend my free moments outside on two legs or two wheels. I'm passionate about music, creating things by hand, outdoor conservation and access, and cartography.
+            </p>
+
+        <a href="https://www.linkedin.com/in/mileskmo/" class="nav-item link" target="_blank"> - linkedin </a>
+        <h2>experience</h2>
+            <ul>
+                <li><I>Research Technician</I>, Huue Biosciences - Berkeley, CA - 2021-22</li>
+                <li><I>Laboratory Technician</I>, Bolt Threads - Emeryville, CA - 2020-21</li>
+                <li><I>Advanced Laboratory Assistant</I>, Moorehead Labs - Chapel Hill, NC - 2016-20</li>
+            </ul>
+        <h2>education</h2>
+            <ul>
+                <li><I>City College of San Francisco</I> - San Francisco, CA - 2021-22
+                    <p class="resume-item">- computer science curriculum centered around functional Python programming and development of versatile, efficient scripts</p>
+                </li>
+
+                <li><I>University of North Carolina at Chapel Hill - </I> Chapel Hill, NC - 2016-20
+                    <p class="resume-item">- bachelor in chemistry and environmental science</p>
+                    <p class="resume-item">- concentration in environmental sustainability and renewable energy</p>
+                </li>
+
+                <li><I>Joint Graduate School of Energy and Environment - </I> Bangkok, Thailand - 2019
+                    <p class="resume-item">- graduate level environmental science curriculum focused on sustainability and atmospheric chemistry in Southeast Asia</p>
+                    <p class="resume-item">- self-directed life cycle asssessment research</p>
+                </li>
+            </ul>
+        
+        <h2>skills</h2>
+        <p>Python | SQL | Git | Test-Driven & REST API Development | Javascript | HTML | CSS | Intuitive Problem-solving | Communication | Organization</p>
+
+        <h2>publications</h2>
+            <ul>
+                <li>"Third generation of photovoltaic panels: A life cycle assessment" <i>Renewable Energy</i>, 2020</li>
+            </ul>
+</div>
+</div>
+"""
+
+def generate_index_file(csv_filename, output_filename):
 
     # genereate html content depending on the number of images
     def prepareImageHTML(postNumber, numberOfImages, imageAlts):
@@ -114,7 +156,14 @@ def generate_blog_posts(csv_filename, output_filename):
     
     # Write the generated HTML to a file
     with open(output_filename, 'w', encoding='utf-8') as f:
-        f.write(HTML_TEMPLATE.format(blog_posts=blog_posts))
+        f.write(HTML_TEMPLATE.format(content=blog_posts))
+
+def generate_about_file(output_filename):
+    with open(output_filename, 'w', encoding='utf-8') as f:
+        f.write(HTML_TEMPLATE.format(content=ABOUT_TEMPLATE))
+
 
 # Example usage
-generate_blog_posts('blogContent.csv', 'index.html')
+if __name__ == "__main__":
+    generate_index_file('blogContent.csv', 'index.html')
+    generate_about_file('about.html')
