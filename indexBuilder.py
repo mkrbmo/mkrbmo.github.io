@@ -42,26 +42,26 @@ HTML_TEMPLATE = """
 
 POST_TEMPLATE = """
 <div class="post" id="{postNumber}" data-feature-count="{featureCount}">
-            <input type="radio" name="accordion" id="post{postNumber}title" onclick="openPost(this.parentElement.id)">
-            <label for="post{postNumber}title" class="title link">{title}</label>
-            
-            <span class="post-location">{location} ({date})</span>
+    <input type="radio" name="accordion" id="post{postNumber}title" >
+    <label for="post{postNumber}title" class="title link">{postNumber}. {title}</label>
+    
+    <span class="post-location">{location} ({date})</span>
 
+    
+        <div class="post-content">
             
-                <div class="post-content">
+            
+                {images}
+            
+            
+            
+                
                     
-                    
-                        {images}
-                    
-                    
-                    
-                        
-                            
-                        <div class="post-text">
-                            <p>{content}</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="post-text">
+                <p>{content}</p>
+            </div>
+        </div>
+</div>
         
 """
 
@@ -69,7 +69,7 @@ ABOUT_TEMPLATE = """
 <div class="post">
 <div class="about-content">
 <h2>about</h2>
-            <p>Hello! I'm a maker, chemist, and aspiring software developer from the appalachian mountains. I currently reside in Seattle, Washington where I spend my free moments outside on two legs or two wheels. I'm passionate about music, creating things by hand, outdoor conservation and access, and cartography.
+            <p>hi i'm miles. I'm a doer of things, former chemist, and aspiring software developer from the appalachian mountains. I currently reside in Seattle, Washington where I spend my free moments outside on two legs or two wheels. I'm passionate about music, creating things by hand, outdoor conservation and access, and cartography.
             </p>
 
         <a href="https://www.linkedin.com/in/mileskmo/" class="nav-item link" target="_blank"> - linkedin </a>
@@ -115,22 +115,22 @@ def generate_index_file(csv_filename, output_filename):
         if numberOfImages == "0":
             return ''
         #condition for one image, no slide incrementing buttons
-        elif numberOfImages == "1":
-            return f'''<div class="image-container">
-            <img class="post-image active-image" src="images/{postNumber}/1.jpeg" alt="{imageAlts[0]}">
-            </div>'''
-        else:
+        else: 
+            imageSources = [f'<img src="images/{postNumber}/{imageNumber}.jpeg" alt="{imageAlts[imageNumber-1]}">' for imageNumber in range(1, int(numberOfImages)+1)]
+            imageHTML = ''.join(imageSources)
+            return f'''
+                <div class="carousel">
+                    <div class="image-container">
+                    {imageHTML}
+                    </div>
+                </div>
+            '''
+            '''
             imageHTML = f'<img class="post-image active-image" src="images/{postNumber}/1.jpeg" alt="{imageAlts[0]}">'
             for imageNumber in range(1, int(numberOfImages)+1):
                 if imageNumber == 1:
                     continue
                 imageHTML += f'<img class="post-image" src="images/{postNumber}/{imageNumber}.jpeg" alt="{imageAlts[imageNumber-1]}">'
-            return f'''
-            <div class="image-container">
-            <a class="arrow" onclick="return decrementSlide(this)">&#10094;</a>
-            {imageHTML}
-            <a class="arrow" onclick="return incrementSlide(this)">&#10095;</a>
-            </div>
             '''
     #store blog html content 
     blog_posts = ""
@@ -139,17 +139,17 @@ def generate_index_file(csv_filename, output_filename):
         reader = csv.DictReader(csvfile)
         for row in reader:
             
-            #
+            
             imagesHTML = prepareImageHTML(row['postNumber'], row['numberOfImages'], row['imageAlts'].split(','))
 
             blog_posts += POST_TEMPLATE.format(
-                postNumber=row['postNumber'],
-                title=row['title'],
+                postNumber=row['postNumber'] if row['postNumber'] else '',
+                title=row['title'] if row['title'] else '',
                 images = imagesHTML,
-                location=row['location'],
-                date=row['date'],
-                content=row['content'],
-                featureCount = row['featureCount']
+                location=row['location'] if row['location'] else '',
+                date=row['date'] if row['date'] else '',
+                content = row['content'] if row['content'] else '',
+                featureCount = row['featureCount'] if row['featureCount'] else '',
             )
     
    

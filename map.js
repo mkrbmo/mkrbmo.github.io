@@ -10,13 +10,13 @@ map.zoomControl.setPosition('bottomleft')
 
 //COLORS OPTIONS FOR MULTITRACK LAYERS
 const COLORS = [
-    "#d9f0a3",
-    "#addd8e",
-    "#78c679",
-    "#41ab5d",
-    "#238443",
-    "#006837",
-    "#004529"]
+"#800020",
+"#4B003A",
+"#FFB6C1",
+"#D64D3C",
+"#5E2A42",
+"#F8BBD0"
+    ]
 
 //GLOCAL VARIABLE OF MAP FEATURES
 var FEATURES = []
