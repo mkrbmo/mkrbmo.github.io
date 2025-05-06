@@ -213,7 +213,8 @@ h2 {
         top: 0;
         z-index: 1;
         background-color: white;
-        border: 1px solid black;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
     #blog-container {
         padding: 0;
@@ -228,9 +229,16 @@ h2 {
     }
     .nav-item {
         margin: 0;
-        margin-right: -1px;
         border-bottom: none;
-        border-top: none
+        border-top: none;
+        border-left: none;
+    }
+    .post {
+        border-left : none;
+        border-right: none;
+    }
+    .link:hover {
+        font-weight: normal;
     }
     
 }

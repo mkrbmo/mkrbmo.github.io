@@ -34,7 +34,7 @@ HTML_TEMPLATE = """
         </div>
         
         <div id="blog-container" >
-        <div id="mobile-disclaimer"> to experience full website - view on a computer </div>
+        <div id="mobile-disclaimer">view on desktop for full website</div>
         {content}
         </div>
 </body>
@@ -77,7 +77,7 @@ ABOUT_TEMPLATE = """
             </p>
 
         <a href="https://www.linkedin.com/in/mileskmo/" class="link" target="_blank"> - linkedin </a>
-        <br>
+        <br><br>
         <a href="https://github.com/mkrbmo/" class="link" target="_blank"> - github </a>
         <h2>experience</h2>
             <ul>
