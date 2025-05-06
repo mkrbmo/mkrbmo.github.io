@@ -1,4 +1,4 @@
-import csv
+import csv, os
 
  # Wrap the posts in an HTML structure
 HTML_TEMPLATE = """
@@ -34,6 +34,7 @@ HTML_TEMPLATE = """
         </div>
         
         <div id="blog-container" >
+        <div id="mobile-disclaimer"> to experience full website - view on a computer </div>
         {content}
         </div>
 </body>
@@ -43,7 +44,7 @@ HTML_TEMPLATE = """
 POST_TEMPLATE = """
 <div class="post" id="{postNumber}" data-feature-count="{featureCount}">
     <input type="radio" name="accordion" id="post{postNumber}title" >
-    <label for="post{postNumber}title" class="title link">{postNumber}. {title}</label>
+    <label for="post{postNumber}title" class="title link">{title}</label>
     
     <span class="post-location">{location} ({date})</span>
 
@@ -69,10 +70,15 @@ ABOUT_TEMPLATE = """
 <div class="post">
 <div class="about-content">
 <h2>about</h2>
-            <p>hi i'm miles. I'm a doer of things, former chemist, and aspiring software developer from the appalachian mountains. I currently reside in Seattle, Washington where I spend my free moments outside on two legs or two wheels. I'm passionate about music, creating things by hand, outdoor conservation and access, and cartography.
+            <p>Hi I’m miles. I’m a doer of things, biker, sewer, and software developer from the appalachian mountains. I currently reside in seattle, washington where I spend every free moment outside on two legs or two wheels. I'm passionate about music, cartography, creative exploration, outdoor conservation and access, repair and reuse, and creating things by hand. 
+            </p>
+            <p>
+            This website is a geospatial record of my trips, projects, and creations. It was built using leaflet maps and geojson data, with python scripts generating the static webpages. Click, pan, and zoom around the map to see routes and locations. Or click on a post to read more. See the gibhub repo below
             </p>
 
-        <a href="https://www.linkedin.com/in/mileskmo/" class="nav-item link" target="_blank"> - linkedin </a>
+        <a href="https://www.linkedin.com/in/mileskmo/" class="link" target="_blank"> - linkedin </a>
+        <br>
+        <a href="https://github.com/mkrbmo/" class="link" target="_blank"> - github </a>
         <h2>experience</h2>
             <ul>
                 <li><I>Research Technician</I>, Huue Biosciences - Berkeley, CA - 2021-22</li>
@@ -110,13 +116,14 @@ ABOUT_TEMPLATE = """
 def generate_index_file(csv_filename, output_filename):
 
     # genereate html content depending on the number of images
-    def prepareImageHTML(postNumber, numberOfImages, imageAlts):
-        #conidition for no images
-        if numberOfImages == "0":
-            return ''
-        #condition for one image, no slide incrementing buttons
-        else: 
-            imageSources = [f'<img src="images/{postNumber}/{imageNumber}.jpeg" alt="{imageAlts[imageNumber-1]}">' for imageNumber in range(1, int(numberOfImages)+1)]
+    def prepareImageHTML(postNumber):
+        imageFiles = sorted(os.listdir(f'images/{postNumber}'))
+        # Filter out non-image files
+        imageFiles = [f for f in imageFiles if f.endswith(('.jpeg', '.JPG', '.png', '.gif', ".jpg"))]
+        if len(imageFiles) == 0:
+            return ""
+        else:
+            imageSources = [f'<img class="post-image" src="images/{postNumber}/{imageFile}">' for imageFile in imageFiles]
             imageHTML = ''.join(imageSources)
             return f'''
                 <div class="carousel">
@@ -125,13 +132,7 @@ def generate_index_file(csv_filename, output_filename):
                     </div>
                 </div>
             '''
-            '''
-            imageHTML = f'<img class="post-image active-image" src="images/{postNumber}/1.jpeg" alt="{imageAlts[0]}">'
-            for imageNumber in range(1, int(numberOfImages)+1):
-                if imageNumber == 1:
-                    continue
-                imageHTML += f'<img class="post-image" src="images/{postNumber}/{imageNumber}.jpeg" alt="{imageAlts[imageNumber-1]}">'
-            '''
+
     #store blog html content 
     blog_posts = ""
 
@@ -140,7 +141,7 @@ def generate_index_file(csv_filename, output_filename):
         for row in reader:
             
             
-            imagesHTML = prepareImageHTML(row['postNumber'], row['numberOfImages'], row['imageAlts'].split(','))
+            imagesHTML = prepareImageHTML(row['postNumber'])
 
             blog_posts += POST_TEMPLATE.format(
                 postNumber=row['postNumber'] if row['postNumber'] else '',
