@@ -1,94 +1,171 @@
-// INSTANTIATE MAP //
-var map = L.map('map').setView([47.624248, -122.317024], 9);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// INSTANTIATE MAP 
+// set map style
+var map = L.map('map').setView([47.53, -120.8], 8);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    tiles:"CartoDB.Voyager"
+    tiles:"CartoDB.Voyager",
+    
 }).addTo(map);
+map.zoomControl.setPosition('bottomleft')
 
-var geojson
+//COLORS OPTIONS FOR MULTITRACK LAYERS
 const COLORS = [
-    "#d9f0a3",
-    "#addd8e",
-    "#78c679",
-    "#41ab5d",
-    "#238443",
-    "#006837",
-    "#004529"]
-var i = 0
+"#800020",
+"#4B003A",
+"#FFB6C1",
+"#D64D3C",
+"#5E2A42",
+"#F8BBD0"
+    ]
 
-var routesGroup2024 = new L.FeatureGroup()
-
-// MAP VIEWING FUNCTIONS //
-
-function styleLayer() {
-    i++
-    return {
-        color: COLORS[i % 8],
-        weight: 5,
-        opacity: 10,
-    };
-}
-function addLayerToGroup(geojson) {
-    var layer = L.geoJSON(geojson,
-        {
-            style: styleLayer,
-            onEachFeature: function (feature, layer) {
-                if (feature.properties && feature.properties.popupContent) {
-                    layer.bindPopup(feature.properties.popupContent);
-                }
-            }
-        })
-    routesGroup2024.addLayer(layer)
-    return layer
-}
-async function fetchTrackDataFromFile(file) {
-    var track 
-    try {
-        await fetch(file)
-            .then((response) => response.json())
-            .then((json) => {
-                track = addLayerToGroup(json);
-            }); 
-    } catch (error) {
-        console.log(error)
+//GLOCAL VARIABLE OF MAP FEATURES
+var FEATURES = []
+var open_post = ""
+//increments through color options so each track is different
+function styleLayer(elementNumber) {
+    if (elementNumber) {
+        return {
+            color: COLORS[elementNumber % 8],
+            weight: 3,
+            opacity: 0.4,
+        };
+    } else {
+        return {
+            color:  "#ffab44",
+            weight: 3,
+            opacity: 0.4,
+        }
     }
-    return track
 }
 
-
-function addInteraction (track) {
-    let row = document.getElementById('track')
-    track.on('mouseover', function(e) {
-        var layer = e.target;
-        layer.setStyle({
-            weight: 7
-        });
-        layer.bringToFront()
-        
-    });
-    track.on('mouseout', function(e) {
-        var layer = e.target;
-    
-        layer.setStyle({
-            weight: 5
-        });
+//INPUT: MARKER FILE LOCATIONS
+//OUTPUT: LEAFLET LAYER
+function fetchGeojsonMarker(fileLocation) {
+    var icon = L.icon({
+        iconUrl: "map/3/icon.png",
+        iconSize: [100,100]
     })
-    track.on('click', function(e) {
-        map.fitBounds(e.target.getBounds());
-    });
+
+    var geojsonLayer = new L.GeoJSON.AJAX(fileLocation, {
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {icon: icon})
+        }
+    })
     
+    return geojsonLayer
 }
 
-for (let i = 0; i<14; i++) {
-    fetchTrackDataFromFile(`map/${i}.geojson`).then((track) => addInteraction(track))
-}
+//INPUT: FILE LOCATIONS OF GEOJSON TRACKS
+//OUTPUT: LEAFLET GROUP OF TRACKS
+function fetchGeojsonTracks (fileLocations) {
 
-map.addLayer(routesGroup2024)
-var overlayMaps = {
-    "2024": routesGroup2024
+    var group = new L.FeatureGroup
+    for (var i = 0; i<fileLocations.length; i++) {
+        var geojsonLayer = new L.GeoJSON.AJAX(fileLocations[i], {
+            style: styleLayer(i+1) //add one to prevent division by zero in color styling
+        }).bindTooltip(function (layer) {
+            return layer.feature.properties.description
+    }, {"sticky": true, "direction": "top"}).addTo(group); 
+    };
+    return group
 };
-var layerControl = L.control.layers(null, overlayMaps).addTo(map);
+
+//INPUT: HTML POST ELEMENT AND FEATURE COUNT
+//OUTPUT: ARRAY OF FILE LOCATIONS
+function aggregateFileLocations(post, featureCount) {
+
+    var fileLocations = [] 
+    for (var x = 0; x<Number(featureCount); x++) {
+        fileLocations.push(`map/${post}/${x+1}.geojson`)
+    }
+    return fileLocations
+}
+
+//INPUT: LEAFLET LAYER OR GROUP
+//OUTPUT: LEAFLET LAYER OR GROUP
+function addMapFeature (feature) {
+    feature.addTo(map)
+    FEATURES.unshift(feature)
+    return feature
+}
+        
+function iteratePosts (posts) {
+    for (var i = 0; i<posts.length; i++) { //ITERATE THROUGH EACH POST
+        var currentPost = posts[i]
+        var featureCount = currentPost.dataset.featureCount
+
+        if (featureCount == 0) { //CONDITION FOR MARKER
+            var layer = fetchGeojsonMarker(`map/${currentPost.id}/1.geojson`, `map/${currentPost.id}/icon.png`)
+            addMapFeature(layer)
+        } else {  //CONDITION FOR TRACK(S)
+            var fileLocations = aggregateFileLocations(currentPost.id, featureCount)
+            var group = fetchGeojsonTracks(fileLocations)
+            addMapFeature(group)
+        };
+    }
+}
+
+var posts = document.getElementsByClassName('post')
+iteratePosts(posts)
 
 
 
+
+function openPost(e) {
+    if (e == open_post) {
+        return
+    } else {
+        open_post = e
+        function focus(feature) {
+            feature.eachLayer(function (layer) {
+                try {
+                    layer.setStyle({
+                            opacity: 1,
+                            weight: 5
+                        })
+                    
+                } catch (error) {
+                    layer.setOpacity(1)
+                }
+            })
+        }
+            
+        
+        function unfocus(feature) {
+            feature.eachLayer(function (layer) {
+                try {
+                    layer.setStyle({
+                            opacity: 0.2,
+                            weight: 5
+                        })
+                    
+                } catch (error) {
+                    layer.setOpacity(0)
+                }
+            })
+        }
+        function panOver(feature) {
+            var bounds = feature.getBounds()
+            map.flyToBounds(bounds, {paddingBottomRight: [document.getElementById('blog-container').offsetWidth, 0], duration: 1.5, easeLinearity: 0.2, maxZoom: 9})
+            //map.flyTo([center.lat, center.lng + 1.5], 8 )
+
+        }
+        //unfocus all features
+        FEATURES.forEach(unfocus)
+
+        var currentPost = FEATURES[e-1]
+        
+        panOver(currentPost)
+        setTimeout(() => {
+            focus(currentPost);
+        }, 1500)
+    }
+}
+
+
+//testing purposes only
+map.on("click", function(e) {
+    console.log(map.getZoom())
+    console.log(map.getCenter())
+    //console.log(e.latlng.lng - map.getBounds().getCenter().lng)
+})

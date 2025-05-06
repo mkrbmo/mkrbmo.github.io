@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,144 +7,332 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>miles</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script src="leaflet.ajax.min.js"></script>
     <script src="script.js" defer></script>
+    <script src="map.js" defer></script>
 </head>
 <body>
-    <div id="container">
+    
+    
+        
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
 
+        <div id="navigation-container" >
+            <a href="index.html" class="nav-item link">miles</a>
+            <a href="about.html" class="nav-item link">about</a>
+        </div>
+        
+        <div id="blog-container" >
+        <div id="mobile-disclaimer"> to experience full website - view on a computer </div>
+        
+<div class="post" id="9" data-feature-count="0">
+    <input type="radio" name="accordion" id="post9title" >
+    <label for="post9title" class="title link">scrap sling</label>
+    
+    <span class="post-location">seattle, wa (2025)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/9/1.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>Last project of 2024 winter: a cross-body cycling bag made entirely out of scrap materials. Designed for the utility of daily use with dedicated pockets and maximized external storage though netting and cinch straps. The size and general shape were initially prototyped, with fabric choice, details, and hardware then chosen during the construction process. 
+
+The bag features a single large enclosure with five internal pockets, a zipper front pocket, two side pockets, shock cord netting on top, bottom cinch straps, U-Lock holster, bike handlebar mounts, shoulder stabilizer strap, and adjustable center buckle
+
+Main bag: reclaimed 420D Robic + 5oz Dyneema
+Lining: ECOPAK EPX200
+Top + Bottom: 210D Dyneema Gridstop</p>
+            </div>
+        </div>
+</div>
         
 
-        <div id="menu-container">
-            <nav id="menu">
-                    <h1 id="title"class=""><a href="index.html" class="nav-item">miles krebs-moberg</a></h1>
-                    <a href="index.html" class="nav-item">projects</a>
-                    <a href="resume.html" class="nav-item">resume</a>
+<div class="post" id="8" data-feature-count="1">
+    <input type="radio" name="accordion" id="post8title" >
+    <label for="post8title" class="title link">ride round mt rainier</label>
+    
+    <span class="post-location">cascades (2024)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/8/1.jpeg"><img class="post-image" src="images/8/2.jpeg"><img class="post-image" src="images/8/3.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
                     
-            </nav>
+            <div class="post-text">
+                <p>road crunched: 160.02 miles
+hills climbed: ~9,700 feet
+time passed: 10.75 hours
+sugar consumed: roughly 400g
+
+The route is typically done as part of the race: Ride Around Mount Rainier in One Day (RAMROD) and is the shortest complete circumnavigation of the 14,410’ mountain on paved roads. Since the race was not taking place in 2024, this ride was done solo and unsupported on a sunny day mid-august. It began in enumclaw traveling clockwise so the elevation gain would be early in the day. After 80 miles of peaceful backroad riding and three mountain passes, the high point of Paradise Inn was reached. A leisurely 80 more miles of downhill and suburban riding followed to reach the starting point just after sunset. The visual and mental perspective offered by circuiting a landmass this size is humbling and a true testament to the power of glucose. </p>
+            </div>
         </div>
-    
-    
-    
-        <main id="blog-container">
-            <!-- START POST -->
-            <div class="post">
-                <div class="image-container">
-
-                    <a href="map.html" ><img class="post-image active-image" id="image4" src="images/003/01.JPG"></a>
-                </div>
-                <!-- POST BODY -->
-                <div class="post-body">
-                    <div class="post-header">
-                        <h2 class="post-title"><a href="map.html" class="link">cycling the sound</a></h2>
-                        <span class="post-location">seattle, WA</span>
-                        <span class="post-date">august, 2024</span>
-                    </div>
-                        <hr>
-                        <p class="post-content">
-                            This past year, I moved to Seattle in large part to have access to the abundance of bike-packing routes within the Pacific Northwest. As I work my way across the Olympic/Cascades mountains and the islands of the Pudget Sound, I wanted to document my trips cartographically. 
-                            <br><br>
-                            This cycling map project uses python scrips to pull GPX data from the strava api and convert it into geojson. Those routes are then displayed using a leaflet map. Click through to explore my adventures by year. 
-                        </p>
-                    </div>
-
-            </div>
-            <!-- END POST -->
-            
-            <!-- START POST -->
-            <div class="post">
-                <!-- IMAGE CONTAINER-->
-                <div class="image-container">
-                    <video src="images/spotify_vid.mp4#t=0.1" controls disablepictureinpicture width="100%"></video>
-                </div>
-
-                <!-- POST BODY -->
-                <div class="post-body">
-                    <div class="post-header">
-                        <h2 href="#" class="post-title">spotify recommends</h2>
-                        <span class="post-location">seattle, WA</span>
-                        <span class="post-date">feb, 2024</span>
-                    </div>
-                        <hr>
-                        <p class="post-content">
-                            Depending on the current iteration of the Spotify recommendation algorithm, the suggestions can be exceedingly personalized. Users are often given recommendations that fall close to their current artists and genres, making it difficult to expand their taste through the algorithmic playlists and stations. In an effort to find broader music recommendations, I created a web application to provide related artists recommendations from the Spotify API. The user inputs an artist name and a playlist is generated with songs controlled for popularity. The songs can be previewed and either removed or added to the suggestion seed to make the playlist more similar to that song. New songs can be populated into the playlist until it is a desired length. The completed playlist can then be named and saved to the users Spotify account.
-                            <br><br>
-                            This project is not currently live. It was created to demonstrate a proficiency various skills including developing full-stack python apps, RESTful APIs, authorization schemas, and application prototyping/testing.   
-                        </p>
-                    </div>
-
-            </div>
-            <!-- END POST -->
-
-            <!-- START POST -->
-            <div class="post">
-                <!-- IMAGE CONTAINER-->
-                <div class="image-container">
-                    <a class="arrow" onclick="return decrementSlide(this)">&#10094;</a>
-                        
-                            <img class="post-image active-image" id="image1" src="images/001/01.JPG">
-                            <img class="post-image" id="image2" src="images/001/02.JPG">
-                            <img class="post-image" id="image3" src="images/001/03.JPG">
-                            <img class="post-image" id="image4" src="images/001/04.JPG">
-                        
-                    <a class="arrow" onclick="return incrementSlide(this)">&#10095;</a>
-                        
-                </div>
-
-                <!-- POST BODY -->
-                <div class="post-body">
-                    <div class="post-header">
-                        <h2 href="#" class="post-title">making my own</h2>
-                        <span class="post-location">asheville, nc</span>
-                        <span class="post-date">dec, 2023</span>
-                    </div>
-                    <hr>
-                    <p class="post-content">    I've always felt that a lot of outdoor gear isn't great. The balance between form, functionality, price, durability, weight, and most importantly ~color~ is very subjective. It's impossible for a widely produced item not to fall short in one area or another. My discovery that people sew gear themselves was therefore revolutionary. The -aptly named- Make Your Own Gear (myog) community is surprisingly large and sources the same highly-engineered materials that commercial brands have access to. Sewing skills willing, I realized that almost all the camping gear I use could be sewn or made exactly to my specifications. 
-                        <br><br>
-                        In an admittedly zealous first attempt, I decided to sew a ultralight backpacking pack. Since I did not have previous experience prototyping or using patterns, I decided to base my initial design off of a popular pack from Hyperlite Mountain Gear, with modifications to make it more comfortable and lighter. I found the actual process of sewing to be significantly easier than figuring out the logistical order-of-operations for constructing it with clean seams. Despite a significant amount of ripping out mistake stitches, it turned out better than I expected. As to whether the bottom falls out in the field, only time will tell. </p>
-                </div>
-
-            </div>
-            <!-- END POST -->
-
-                        <!-- START POST -->
-                        <div class="post">
-                            <!-- IMAGE CONTAINER-->
-                            <div class="image-container">
-                                <a class="arrow" onclick="return decrementSlide(this)">&#10094;</a>
-                                    
-                                        <img class="post-image active-image" id="image1" src="images/004/01.JPG">
-                                        <img class="post-image" id="image2" src="images/004/02.JPG">
-                                        <img class="post-image" id="image3" src="images/004/03.JPG">
-                                        <img class="post-image" id="image4" src="images/004/04.JPG">
-                                        <img class="post-image" id="image4" src="images/004/05.JPG">
-                                        <img class="post-image" id="image4" src="images/004/06.JPG">
-                                        <img class="post-image" id="image4" src="images/004/07.JPG">
-
-                                    
-                                <a class="arrow" onclick="return incrementSlide(this)">&#10095;</a>
-                                    
-                            </div>
-            
-                            <!-- POST BODY -->
-                            <div class="post-body">
-                                <div class="post-header">
-                                    <h2 href="#" class="post-title">alp romp</h2>
-                                    <span class="post-location">belluno, italy</span>
-                                    <span class="post-date">august, 2023</span>
-                                </div>
-                                <hr>
-                                <p class="post-content">    I love walking in the mountains alone. Nothing conjures an equivalent sense of being so strikingly in your own body or mind. This past summer, my desire for an extended period of wandering and reflection brought me to the French and Italian alps. In the course of nearly two months of sleeping in the dirt, I backpacked Parc National de la Vanoise, the Tour du Mont Blanc, a northbound traverse of Alta Via 1, and southbound Alta Via 2.  
-                                    <br><br>
-                                    Despite my initial plans to follow an itinerary, I found that the weather and topography were more consistent guides of my route. Each morning, I would leave my camp not sure how far I would be going. During my breaks, I would pour over topographic maps to determine potential places to camp that night. The open-ended nature of this type of backpacking I found to be deeply fulfilling and stimulating. To have your physical movement on the earth be the only relevant decision in your day creates a simplicity that allows you to be genuinely present. As the days accumulate, you develop an appreciation for the capacity of human-scale movement and the magnitude of geological forces.  </p>
-                            </div>
-            
-                        </div>
-                        <!-- END POST -->
-
-        </main>
-    
 </div>
+        
 
+<div class="post" id="7" data-feature-count="1">
+    <input type="radio" name="accordion" id="post7title" >
+    <label for="post7title" class="title link">sky to sea</label>
+    
+    <span class="post-location">whistler, bc (2024)</span>
 
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/7/1.jpeg"><img class="post-image" src="images/7/2.jpeg"><img class="post-image" src="images/7/3.jpeg"><img class="post-image" src="images/7/4.jpeg"><img class="post-image" src="images/7/5.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>sixty-seven miles and five-thousand six-hundred and thirty-four feet in two days
+
+Continuously, these two wheels are moving further off pavement and onto the dirt and rocks where they belong. This was their first majority singletrack trip and a relatively chossy introduction. The route follows the sea to sky corridor along the cheakamus, squamish, and green rivers, starting in the northern cascades and ending in the howe sound. It alternates between deeply forested roads and riverside singletrack which provided a gripping ride on a rigid-framed gravel bike. </p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="6" data-feature-count="10">
+    <input type="radio" name="accordion" id="post6title" >
+    <label for="post6title" class="title link">sound cycling</label>
+    
+    <span class="post-location">puget sound (2024)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/6/IMG_4532.JPG"><img class="post-image" src="images/6/IMG_4919.JPG"><img class="post-image" src="images/6/IMG_5194.JPG"><img class="post-image" src="images/6/IMG_5323.JPG"><img class="post-image" src="images/6/IMG_5342.JPG"><img class="post-image" src="images/6/IMG_9785.JPG">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>Moving to Seattle the past year was in large part to have access to the abundance of bike-packing routes within the Pacific Northwest. Wandering the routes across the Olympic/Cascades mountains and the islands of the Pudget Sound, this cycling map documents these trips cartographically. The cycling analysis project uses python scrips to pull GPX data from the strava api and convert it into geojson. Those routes are then displayed using a leaflet map. Hover over a route to see more information.</p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="5" data-feature-count="0">
+    <input type="radio" name="accordion" id="post5title" >
+    <label for="post5title" class="title link">handlebar bag</label>
+    
+    <span class="post-location">seattle, wa (2024)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/5/1.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>An unwieldy, high-volume handlebar bag as the latest addition to the bikepacking kit. Made from waterproof high-performance fabric intentionally reversed to show the striking, geometric lamination. The bag can stably hang off the handlebars or be installed on a rack. The final bag went thorough several iterations to minimize rocking during intense climbs and allow ease of access to top and side pockets on narrow drop-bar bikes. 
+
+The bag features a large main compartment with drawstring closure, zippered side and top pockets, fiberglass stabilization and structural reinforcements, and numerous attachment points.
+
+Main bag: RX30 X-PAC
+Lining: 420D Robic </p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="4" data-feature-count="0">
+    <input type="radio" name="accordion" id="post4title" >
+    <label for="post4title" class="title link">music reqs</label>
+    
+    <span class="post-location">seattle, wa (2024)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/4/spotify_vid(0).gif"><img class="post-image" src="images/4/spotify_vid(1).gif"><img class="post-image" src="images/4/spotify_vid(2).gif"><img class="post-image" src="images/4/spotify_vid(3).gif">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>The recommendation algorithms of music streaming platforms have become increasingly personalized to the point of only suggesting music within the genres a user already likes. These algorithms are to the detriment of music taste expansion and listening as an actively engaged activity. This music recommendation application serves to broaden music discovery through anonymization of the algorithm requests. The application takes an input artist and fetches a playlist of related songs controlled for popularity. Songs can be previewed and either removed or added to the recommendation seed to shift the playlist towards that sound. Completed playlists are then saved to the users spotify account. 
+
+This project was made using the python flask library for the application GUI and functionality. Requests are made to the spotify API and stored locally. The project demonstrates flask web development, implementation of authorization schemas, and interaction with RESTful APIs. See the github repo linked on about page.</p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="3" data-feature-count="0">
+    <input type="radio" name="accordion" id="post3title" >
+    <label for="post3title" class="title link"> overnight pack</label>
+    
+    <span class="post-location">asheville, nc (2023)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/3/1.jpeg"><img class="post-image" src="images/3/2.jpeg"><img class="post-image" src="images/3/3.jpeg"><img class="post-image" src="images/3/4.jpg"><img class="post-image" src="images/3/5.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>This back is the first in a series of technical outdoor bags meant for back/bikepacking. Without access to patterns, the bag was prototyped off a popular design by hyperlite mountain gear. Referencing detailed measurements and diagrams taken from an existing bag, this pack was then produced using similar high-performance fabrics and notions. The bag presented logistical hurdles being made on a non-industrial sewing machine, which were accommodated through alternations in design. 
+
+Sewing outdoor gear, as popularized by cottage-industry manufacturers and the make-your-own-gear community, offers an outlet for creativity and customization. Home sewn gear allows for material up-cycling from worn or obsolete equipment. The process of sewing bags also imparts the knowledge to mend broken gear and divert it from waste streams. 
+
+Main bag: 2.9oz + 5oz dyneema composite
+Pockets: 210D dyneema ripstop
+Shouler + hipstraps: upcycled yoga mat + spacer mesh
+material cost: <80 usd</p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="2" data-feature-count="4">
+    <input type="radio" name="accordion" id="post2title" >
+    <label for="post2title" class="title link">alps</label>
+    
+    <span class="post-location">belluno, italy (2023)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/2/1.jpeg"><img class="post-image" src="images/2/2.jpeg"><img class="post-image" src="images/2/3.jpeg"><img class="post-image" src="images/2/4.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>Length: around 375 mi
+Height: roughly 98,000 ft of elevation gain
+Width: 4 weeks of walking + rest days
+
+Nothing parallels walking alone in the mountains. Only alpine solitude so acutely conjures the sense of being strikingly in your own body and mind. Following the desire for an extended period of wandering and reflection, the plan for a four part trek in the eastern alps was formed. The trip consisted of: the tour du mont blanc, a tour of vanoise, and alta via one + two. As strength increased and the weather warmed, each successive route would move faster and with more days between resupply. 
+
+The tour du mont blanc was a gentle welcome to the alpine with heavily trafficked trails and frequent refuges to snack and caffeinate. In contrast, vanoise was a dissolution of frontcountry life and complete immersion into the subalpine. Each day spent hovering above 8000 feet and with off-grid refuges a days walk apart. While the dolomites are lower altitude, the contrast of alpine meadows butted against rough, rocky outcroppings was no less captivating. The exposed sections of via ferrata and frequent lightning storms served as a harrowing finale to the trip’s narrative arc. but made the sunny, flowing traverses feel like extended walking mediation.</p>
+            </div>
+        </div>
+</div>
+        
+
+<div class="post" id="1" data-feature-count="1">
+    <input type="radio" name="accordion" id="post1title" >
+    <label for="post1title" class="title link">pdx to sf</label>
+    
+    <span class="post-location">pacific coast (2023)</span>
+
+    
+        <div class="post-content">
+            
+            
+                
+                <div class="carousel">
+                    <div class="image-container">
+                    <img class="post-image" src="images/1/1.jpeg"><img class="post-image" src="images/1/2.jpeg"><img class="post-image" src="images/1/3.jpeg"><img class="post-image" src="images/1/4.jpeg"><img class="post-image" src="images/1/5.jpeg">
+                    </div>
+                </div>
+            
+            
+            
+            
+                
+                    
+            <div class="post-text">
+                <p>Going up: 29,000 ft
+Going out: ~900 miles
+Going over: 2 weeks
+
+First ever Bikepacking trip and a thoroughly enchanting initiation at over nine hundred miles in the course of two weeks. This route closely traces the pacific coast, alternating between highway 1 and 101, and country roads. Choosing to embark southbound allowed for an uninterrupted view of the coast and the advantage of the notherly winds. 
+
+Bikepacking sits at the sweet-spot between pedestrian and vehicle travel. It is at once fast enough to see entire regions and ranges in the course of days, yet slow enough that every scene can be taken in. The variation of this stretch of coast added a novelty to each day that was punctuated by consistent and rhythmic periods of climbing. After a week of coastal riding along the rocky southern oregon coast, the route enters the avenue of the giants – an energetically stunning and almost clandestine stretch of old growth forest. Emerging from the avenue, one travels into the eel river valley’s equally hot and harrowing section of non-existent highway shoulder riding. The route forks then into the elevation high point for the entire pacific coast at leggett hill. After the whiplash of physical and emotional extremes, the route offers the salve of three tranquil days of isolated coastal roads passing through farms and pacific bluffs before landing in san francisco. </p>
+            </div>
+        </div>
+</div>
+        
+
+        </div>
 </body>
 </html>
