@@ -124,7 +124,7 @@ h2 {
     
   
 .post input:checked ~ .post-content {
-    max-height: 100rem
+    max-height: 100%
 }
 /*
 .image-container {
@@ -241,4 +241,9 @@ h2 {
         font-weight: normal;
     }
     
+}
+@media (min-width: 1281px) {
+    #blog-container {
+        width: 30%;
+    }
 }

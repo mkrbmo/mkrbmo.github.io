@@ -28,6 +28,7 @@ function styleLayer(elementNumber) {
             color: COLORS[elementNumber % 8],
             weight: 3,
             opacity: 0.4,
+            
         };
     } else {
         return {
@@ -42,13 +43,13 @@ function styleLayer(elementNumber) {
 //OUTPUT: LEAFLET LAYER
 function fetchGeojsonMarker(fileLocation) {
     var icon = L.icon({
-        iconUrl: "map/3/icon.png",
+        iconUrl: "images/icon.png",
         iconSize: [100,100]
     })
 
     var geojsonLayer = new L.GeoJSON.AJAX(fileLocation, {
         pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {icon: icon})
+            return L.marker(latlng );//, {icon: icon}
         }
     })
     

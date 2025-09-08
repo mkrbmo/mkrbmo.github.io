@@ -71,7 +71,7 @@ ABOUT_TEMPLATE = """
 <div class="about-content">
 <h2>about</h2>
             <p>
-            hi I’m miles. I’m a doer of things, biker, sewer, and software developer from the appalachian mountains. I currently reside in Seattle, Washington where I spend every free moments outside on two legs or two wheels. I'm passionate about music, cartography, outdoor conservation and access, repair and reuse, and creating things by hand
+            I’m miles. I’m a biker, sewer, mountaineer, and software developer from the appalachian mountains. I currently reside in Asheville, NC where I spend every free moments outside on two legs or two wheels. I'm passionate about music, cartography, outdoor conservation and access, repair and reuse, and creating things by hand
             </p>
             <p>
             This website is a geospatial record of my trips, projects, and creations. It was built using leaflet with python scripts generating the static webpages. Click, pan, and zoom around the map to see routes and locations. Or click on a post to read more. See the gibhub repository below
