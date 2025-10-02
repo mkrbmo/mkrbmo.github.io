@@ -3,7 +3,6 @@
 var map = L.map('map').setView([47.53, -120.8], 8);
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
-    tiles:"CartoDB.Voyager",
     
 }).addTo(map);
 map.zoomControl.setPosition('bottomleft')

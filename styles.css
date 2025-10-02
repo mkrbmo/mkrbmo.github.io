@@ -174,7 +174,6 @@ h2 {
     
      /* Center the images if there are fewer */
 }
-
 .image-container {
     height: 100%; 
     overflow-y: hidden;
@@ -183,7 +182,6 @@ h2 {
     -ms-overflow-style: none;  
     scrollbar-width: none; 
     min-width: 0;
-    
 }
 /* Individual image styling */
 .image-container img {
@@ -246,4 +244,56 @@ h2 {
     #blog-container {
         width: 40%;
     }
+}
+/* Lightbox overlay */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+.lightbox-image {
+    max-height: 90%;
+    max-width: 90%;
+    object-fit: contain;
+    
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 15px;
+}
+
+.lightbox-nav.left {
+    left: 20px;
+}
+
+.lightbox-nav.right {
+    right: 20px;
 }
