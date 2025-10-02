@@ -83,6 +83,7 @@ async function loadGeoJSONFeatures(map) {
                 if (inputElement) {
                     l.on('click', () => {
                         inputElement.click();
+                        handleLabelClick(inputElement);
                     });
                 }
             });

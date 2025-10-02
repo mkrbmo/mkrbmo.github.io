@@ -1,32 +1,34 @@
 
-document.querySelectorAll('.post label').forEach(label => {
-    label.addEventListener('click', () => {
-        if (window.innerWidth > 768) {
-            var parentElementId = label.parentElement.id
-            focusFeatureGroup(parentElementId)
-            
-            setTimeout(() => {
-                var targetElement = document.getElementById(parentElementId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-            , 100);
-        } else {
-            setTimeout(() => {
-                const navHeight = document.getElementById('navigation-container').offsetHeight;
-                const elementTop = label.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementTop - navHeight;
+function handleLabelClick(label) {
+  if (window.innerWidth > 768) {
+    const parentElementId = label.parentElement.id;
+    focusFeatureGroup(parentElementId);
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }, 100);
+    setTimeout(() => {
+      const targetElement = document.getElementById(parentElementId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  } else {
+    setTimeout(() => {
+      const navHeight = document.getElementById('navigation-container').offsetHeight;
+      const elementTop = label.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementTop - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }, 100);
+  }
 }
-        
-    });
-})
+
+// Add event listeners
+document.querySelectorAll('.post label').forEach(label => {
+  label.addEventListener('click', () => handleLabelClick(label));
+});
+
 
 // Lightbox functionality
 document.addEventListener("DOMContentLoaded", function () {
@@ -127,3 +129,5 @@ function focusFeatureGroup(group) {
         paddingBottomRight
     });
 }
+
+
