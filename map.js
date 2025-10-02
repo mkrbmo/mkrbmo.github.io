@@ -163,9 +163,3 @@ function openPost(e) {
 }
 
 
-//testing purposes only
-map.on("click", function(e) {
-    console.log(map.getZoom())
-    console.log(map.getCenter())
-    //console.log(e.latlng.lng - map.getBounds().getCenter().lng)
-})

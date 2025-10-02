@@ -171,9 +171,8 @@ h2 {
     justify-content: safe center;
     /*margin: 0 auto; /* Center the parent element */
     
-    
-     /* Center the images if there are fewer */
 }
+
 .image-container {
     height: 100%; 
     overflow-y: hidden;
