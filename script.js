@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Optional: Close lightbox when clicking outside the image
+    // Close lightbox when clicking outside the image
     overlay.addEventListener("click", (e) => {
         if (e.target === overlay) {
             closeLightbox();
