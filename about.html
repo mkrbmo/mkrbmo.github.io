@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>miles</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -14,12 +14,17 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
      <script src="leaflet.ajax.min.js"></script>
-    <script src="script.js" defer></script>
-    <script src="map.js" defer></script>
+    <script src="static/script.js" defer></script>
+    <script src="static/map.js" defer></script>
 </head>
 <body>
     
-    
+        <div id="lightbox-overlay" class="lightbox hidden">
+            <span id="lightbox-close" class="lightbox-close">&times;</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="Enlarged">
+            <span id="lightbox-prev" class="lightbox-nav left">&#10094;</span>
+            <span id="lightbox-next" class="lightbox-nav right">&#10095;</span>
+        </div>
         
         <div id="map-container">
             <div id="map"></div>

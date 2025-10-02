@@ -3,3 +3,5 @@
 oldFiles
 oldFiles/*
 blogContent.csv
+organize.py
+indexBuilder.py

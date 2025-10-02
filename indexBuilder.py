@@ -9,7 +9,7 @@ HTML_TEMPLATE = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>miles</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -17,8 +17,8 @@ HTML_TEMPLATE = """
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
      <script src="leaflet.ajax.min.js"></script>
-    <script src="script.js" defer></script>
-    <script src="map.js" defer></script>
+    <script src="static/script.js" defer></script>
+    <script src="static/map.js" defer></script>
 </head>
 <body>
     
@@ -48,8 +48,8 @@ HTML_TEMPLATE = """
 
 POST_TEMPLATE = """
 <div class="post" id="{postNumber}" data-feature-count="{featureCount}">
-    <input type="radio" name="accordion" id="post{postNumber}title" >
-    <label for="post{postNumber}title" class="title link">{title}</label>
+    <input type="radio" name="accordion" id="post{postNumber}input" >
+    <label for="post{postNumber}input" class="title link">{title}</label>
     
     <span class="post-location">{location} ({date})</span>
 
@@ -129,7 +129,7 @@ def generate_index_file(csv_filename, output_filename):
         if len(imageFiles) == 0:
             return ""
         else:
-            imageSources = [f'<img class="post-image" src="images/{postNumber}/{imageFile}">' for imageFile in imageFiles]
+            imageSources = [f'<img class="post-image clickable-image" src="images/{postNumber}/{imageFile}">' for imageFile in imageFiles]
             imageHTML = ''.join(imageSources)
             return f'''
                 <div class="carousel">

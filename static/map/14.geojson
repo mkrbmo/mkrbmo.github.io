@@ -1,0 +1,135 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of mount baker on 06.15.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -121.81477753105767,
+                    48.776354750605236
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of mcclellan peak on 07.20.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -120.78611991301446,
+                    47.46995889728893
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of lil annapurna on 07.18.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -120.81455308140595,
+                    47.46785320747912
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of mount daniel on 06.12.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -121.18095813723721,
+                    47.56468447130848
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of cathedral peak on 07.04.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -120.18868271841339,
+                    48.99017423693115
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of amphitheater mountain on 07.05.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -120.19193886372113,
+                    48.97612942550538
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of remmel mountain on 07.05.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -120.19692224813161,
+                    48.922889065255106
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of mount saint helens on 07.29.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -122.19516148517104,
+                    46.191929207927814
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of unicorn peak on 06.08.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -121.70118415812962,
+                    46.746203423705936
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "summit of the tooth on 05.17.2025"
+            },
+            "geometry": {
+                "coordinates": [
+                    -121.45454918471057,
+                    47.445834208255945
+                ],
+                "type": "Point"
+            }
+        }
+    ]
+}
