@@ -1,5 +1,6 @@
 
 function handleLabelClick(label) {
+    input.click();
   if (window.innerWidth > 768) {
     const parentElementId = label.parentElement.id;
     focusFeatureGroup(parentElementId);

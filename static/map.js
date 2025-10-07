@@ -82,7 +82,7 @@ async function loadGeoJSONFeatures(map) {
                 const inputElement = document.getElementById(`post${postId}input`);
                 if (inputElement) {
                     l.on('click', () => {
-                        inputElement.click();
+                        
                         handleLabelClick(inputElement);
                     });
                 }
